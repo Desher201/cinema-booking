@@ -52,6 +52,25 @@ class Movie:
                 if i["id"] == id:
                     print(f"id:{i["id"]}, title:{i["title"]}, director:{i['director']}, genre:{i['genre']}")
 
+    @staticmethod
+    def search_film():
+        with open("films.json", "r", encoding="utf8") as f:
+            try:
+                data = json.load(f)
+            except json.decoder.JSONDecodeError:
+                data = []
+
+        title = input("Введіть назву фільму: ")
+
+        for film in data:
+            if title.lower() in film["title"].lower():
+                print(
+                    f"id:{film['id']}, "
+                    f"title:{film['title']}, "
+                    f"director:{film['director']}, "
+                    f"genre:{film['genre']}"
+                )
+
 
 movie = Movie("Interstellar", "Christopher Nolan", "")
 movie_2 = Movie("neInterstellar", "neChristopher Nolan", "")
@@ -60,3 +79,4 @@ movie.add_film_to_json()
 movie_2.add_film_to_json()
 movie.show_all_films()
 Movie.find_film_by_id(movie.id)
+Movie.search_film()
