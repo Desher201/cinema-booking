@@ -23,7 +23,7 @@ class Movie:
                 data = json.load(f)
             except json.decoder.JSONDecodeError:
                 data = []
-            if not any(i["id"] == self.id for i in data):
+            if not any(i["id"] == self.id for i in data) and not any(i["title"] == self.title for i in data):
                 data.append(self.__dict__)
 
 
@@ -55,6 +55,7 @@ class Movie:
 
 movie = Movie("Interstellar", "Christopher Nolan", "")
 movie_2 = Movie("neInterstellar", "neChristopher Nolan", "")
+movie_3 = Movie("Interstellar", "neChristopher Nolan", "")
 movie.add_film_to_json()
 movie_2.add_film_to_json()
 movie.show_all_films()
