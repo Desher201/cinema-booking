@@ -98,6 +98,6 @@ class Booking:
 
         print("=" * 100)
 
-
-Booking.book_ticket()
-Booking.show_bookings()
+#
+# Booking.book_ticket()
+# Booking.show_bookings()

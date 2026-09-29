@@ -64,4 +64,4 @@ class Favorites:
             f.truncate()
         if film_is_repeat is False:
             print("Фільм додано до обраного")
-Favorites.add_to_favorites()
+# Favorites.add_to_favorites()
